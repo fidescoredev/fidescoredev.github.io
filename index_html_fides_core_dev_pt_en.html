@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fides Core Dev</title>
+  <meta name="description" content="Fides Core Dev — desenvolvimento de aplicativos católicos." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fides Core Dev" />
+  <meta property="og:title" content="Fides Core Dev" />
+  <meta property="og:description" content="Desenvolvemos aplicativos católicos que inspiram oração, estudo e devoção — com simplicidade, beleza e performance." />
+  <meta property="og:image" content="og-image-fides.png" />
+  <meta property="og:image:alt" content="Logo da Fides Core Dev (cruz roxa em círculo)" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fides Core Dev" />
+  <meta name="twitter:description" content="Desenvolvemos aplicativos católicos que inspiram oração, estudo e devoção — com simplicidade, beleza e performance." />
+  <meta name="twitter:image" content="og-image-fides.png" />
+
+  <!-- Icons / Favicons -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#5b2bd5" />
+
+  <style>
+    :root {
+      /* Paleta Fides: roxo & dourado do logo */
+      --brand: #5b2bd5;   /* roxo principal */
+      --brand-700: #4b23b0; /* roxo hover */
+      --accent: #f1b21e;  /* dourado */
+      --bg: #f8f7fb;
+      --card: #ffffff;
+      --ink: #2c2c34;
+      --muted: #6b7280;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans';
+      background: var(--bg);
+      color: #333;
+    }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .brand img { max-height: 60px; width: auto; }
+    .lang {
+      margin-left: auto; display: flex; gap: 8px; align-items: center;
+    }
+    .lang button {
+      border: 1px solid #d9d9d9; background: #fff; color: #333;
+      padding: 8px 12px; border-radius: 10px; cursor: pointer;
+    }
+    .lang button.active { border-color: var(--brand); color: var(--brand); font-weight: 600; }
+
+    main { padding: 44px 20px; }
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 40px 28px;
+      display: grid; gap: 18px; justify-items: center; text-align: center;
+    }
+    h1 { color: var(--ink); margin: 0; font-size: clamp(28px, 4vw, 40px); }
+    p.lead { font-size: 1.15rem; line-height: 1.7; max-width: 760px; margin: 0 auto; }
+
+    .cta {
+      display: inline-block; margin-top: 12px; padding: 12px 18px; border-radius: 10px;
+      background: var(--brand); color: #fff; text-decoration: none; border: 2px solid var(--brand);
+      transition: transform .04s ease, opacity .2s ease, background .2s ease, color .2s ease;
+    }
+    .cta:hover { background: var(--brand-700); }
+    .cta:active { transform: translateY(1px); }
+    .cta.outline { background: transparent; color: var(--brand); }
+    .cta.outline:hover { background: rgba(91,43,213,0.06); }
+    .cta:hover { opacity: .92; }
+    .cta:active { transform: translateY(1px); }
+
+    .features {
+      margin-top: 28px; display: grid; gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      padding: 20px; min-height: 140px;
+    }
+    .card h3 { margin: 6px 0 8px; color: var(--ink); }
+    .card p { margin: 0; color: #444; line-height: 1.6; }
+
+    footer {
+      margin-top: 40px; background: #fff; color: var(--muted); font-size: .95rem;
+    }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; }
+    .small { color: var(--muted); }
+
+    [data-lang] { display: none; }
+    [data-lang].show { display: initial; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex; gap:16px; align-items:center;">
+      <div class="brand">
+        <img src="Fides_Core_logo_corporativo_roxo_dourado_premium.png" alt="Logo Fides Core Dev" />
+        <strong>Fides Core Dev</strong>
+      </div>
+      <div class="lang" aria-label="Language selector">
+        <button id="btn-pt" class="active" data-set-lang="pt" aria-pressed="true">PT</button>
+        <button id="btn-en" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>
+        <span data-lang="pt" class="show">Tecnologia a serviço da fé</span>
+        <span data-lang="en">Technology at the service of faith</span>
+      </h1>
+      <p class="lead">
+        <span data-lang="pt" class="show">Somos um estúdio focado em desenvolver aplicativos católicos que inspiram oração, estudo e devoção — com simplicidade, beleza e performance.</span>
+        <span data-lang="en">We build Catholic apps that inspire prayer, study, and devotion — with simplicity, beauty, and great performance.</span>
+      </p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+        <a class="cta" href="politica-de-privacidade.html">
+          <span data-lang="pt" class="show">Política de Privacidade</span>
+          <span data-lang="en">Privacy Policy</span>
+        </a>
+        <a class="cta outline" href="#contato">
+          <span data-lang="pt" class="show">Contato</span>
+          <span data-lang="en">Contact</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="features">
+      <article class="card">
+        <h3>
+          <span data-lang="pt" class="show">Apps Católicos</span>
+          <span data-lang="en">Catholic Apps</span>
+        </h3>
+        <p>
+          <span data-lang="pt" class="show">Do Rosário a Leituras Diárias, criamos experiências fiéis ao Magistério e fáceis de usar.</span>
+          <span data-lang="en">From the Rosary to Daily Readings, we craft experiences faithful to the Magisterium and easy to use.</span>
+        </p>
+      </article>
+      <article class="card">
+        <h3>
+          <span data-lang="pt" class="show">Qualidade & Performance</span>
+          <span data-lang="en">Quality & Performance</span>
+        </h3>
+        <p>
+          <span data-lang="pt" class="show">Interfaces limpas, acessíveis e rápidas, pensadas para qualquer dispositivo.</span>
+          <span data-lang="en">Clean, accessible, and fast interfaces designed for any device.</span>
+        </p>
+      </article>
+      <article class="card">
+        <h3>
+          <span data-lang="pt" class="show">Foco no Usuário</span>
+          <span data-lang="en">User‑First</span>
+        </h3>
+        <p>
+          <span data-lang="pt" class="show">Privacidade respeitada e conteúdo que aproxima as pessoas de Deus.</span>
+          <span data-lang="en">Privacy respected and content that brings people closer to God.</span>
+        </p>
+      </article>
+    </section>
+
+    <section id="contato" class="hero" style="margin-top:24px; text-align:left;">
+      <h2 style="margin:0; text-align:center;">
+        <span data-lang="pt" class="show">Contato</span>
+        <span data-lang="en">Contact</span>
+      </h2>
+      <div style="max-width:760px; margin:12px auto 0;">
+        <p>
+          <span data-lang="pt" class="show">Fale com a Fides Core Dev pelo e‑mail <a href="mailto:contato@fidescoredev.com">contato@fidescoredev.com</a>.</span>
+          <span data-lang="en">Reach Fides Core Dev via e‑mail at <a href="mailto:contato@fidescoredev.com">contato@fidescoredev.com</a>.</span>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="small">© 2025 Fides Core Dev</span>
+      <nav style="display:flex; gap:16px; align-items:center;">
+        <a href="politica-de-privacidade.html">
+          <span data-lang="pt" class="show">Política de Privacidade</span>
+          <span data-lang="en">Privacy Policy</span>
+        </a>
+        <span>•</span>
+        <a href="#contato">
+          <span data-lang="pt" class="show">Contato</span>
+          <span data-lang="en">Contact</span>
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const html = document.documentElement;
+      const $pt = document.getElementById('btn-pt');
+      const $en = document.getElementById('btn-en');
+
+      function setLang(lang) {
+        const show = document.querySelectorAll('[data-lang]');
+        show.forEach(el => {
+          if (el.getAttribute('data-lang') === lang) {
+            el.classList.add('show');
+          } else {
+            el.classList.remove('show');
+          }
+        });
+        if (lang === 'pt') {
+          $pt.classList.add('active'); $pt.setAttribute('aria-pressed','true');
+          $en.classList.remove('active'); $en.setAttribute('aria-pressed','false');
+          html.setAttribute('lang','pt-BR');
+          localStorage.setItem('fides_lang','pt');
+        } else {
+          $en.classList.add('active'); $en.setAttribute('aria-pressed','true');
+          $pt.classList.remove('active'); $pt.setAttribute('aria-pressed','false');
+          html.setAttribute('lang','en');
+          localStorage.setItem('fides_lang','en');
+        }
+      }
+
+      const saved = localStorage.getItem('fides_lang');
+      if (saved) {
+        setLang(saved);
+      } else {
+        const prefersEN = (navigator.language || '').toLowerCase().startsWith('en');
+        setLang(prefersEN ? 'en' : 'pt');
+      }
+
+      $pt.addEventListener('click', () => setLang('pt'));
+      $en.addEventListener('click', () => setLang('en'));
+    })();
+  </script>
+</body>
+</html>
